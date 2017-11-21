@@ -67,7 +67,7 @@
             }
         </style>
     </head>
-    <body>
+    <body onload="loadCode()">
         <div class="wrapper">
             <main class="content">
                 <h1>G+ Injection for CSC 424: SPM</h1>
@@ -76,9 +76,6 @@
             </main>
         </div>
         <script type="text/javascript">
-          document.addEventListener("load", function() {
-            loadCode();
-          });
           function installCode(loadedCode) {
             var code = 'javascript: (function () {';
             code += loadedCode;
