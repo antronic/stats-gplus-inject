@@ -72,7 +72,8 @@
             <main class="content">
                 <h1>G+ Injection for CSC 424: SPM</h1>
                 <div class="seperator"></div>
-                <a id="install" class="button">CSC424+</a>
+                <a id="install-post" class="button">CSC424+P</a>
+                <a id="install-comment" class="button">CSC424+C</a>
             </main>
         </div>
         <script type="text/javascript">
@@ -87,13 +88,23 @@
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
               if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("install").href =
+                document.getElementById("install-post").href =
                 installCode(this.responseText);
               }
             };
-            xhttp.open("GET", "https://cdn.rawgit.com/antronic/-inject/dd057010/script.min.js", true);
+            xhttp.open("GET", "https://cdn.rawgit.com/antronic/-inject/f96810cb/posts.min.js", true);
             xhttp.send();
           }
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("install-comment").href =
+              installCode(this.responseText);
+            }
+          };
+          xhttp.open("GET", "https://cdn.rawgit.com/antronic/-inject/f96810cb/comments.min.js", true);
+          xhttp.send();
+        }
         </script>
     </body>
 </html>
