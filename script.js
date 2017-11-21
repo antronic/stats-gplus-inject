@@ -10,13 +10,13 @@ var COMMENT_CLASSNAME = 'OnSI9b';
 var COMMNET_AUTHOR_CLASSNAME = 'PGAhe';
 
 function startInject() {
-  document.querySelectorAll(AUTHOR_CLASSNAME).forEach(function(e) {iE(e, 'A')});
+  document.querySelectorAll(AUTHOR_CLASSNAME).forEach(function(e) {iE(e)});
   if (COMMENT_ENABLE) {
-    document.querySelectorAll(COMMENT_CLASSNAME).forEach(function(e) {iE(e, 'C')});
+    document.querySelectorAll(COMMENT_CLASSNAME).forEach(function(e) {iE(e)});
   }
 }
 
-function iEt(el, c) {
+function iEt(el) {
 	el.addEventListener('click', function() {
 		cC(el);
   });
@@ -47,7 +47,7 @@ function collectInformation() {
 
   if (COMMENT_ENABLE) {
     COMMENT_CLASSNAME = '.' + prompt('COMMENT_CLASSNAME', COMMENT_CLASSNAME) || COMMENT_CLASSNAME;
-    AUTHOR_NAME_CLASSNAME = prompt('AUTHOR_NAME_CLASSNAME', AUTHOR_NAME_CLASSNAME);
+    COMMNET_AUTHOR_CLASSNAME = prompt('COMMNET_AUTHOR_CLASSNAME', COMMNET_AUTHOR_CLASSNAME);
   }
   startInject();
 }
