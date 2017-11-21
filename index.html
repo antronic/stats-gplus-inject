@@ -72,8 +72,28 @@
             <main class="content">
                 <h1>G+ Injection for CSC 424: SPM</h1>
                 <div class="seperator"></div>
-                <a class="button" href="javascript: (function () { var jsCode = document.createElement('script'); jsCode.setAttribute('src', 'https://cdn.rawgit.com/antronic/-inject/2e6022c9/script.min.js'); document.body.appendChild(jsCode); }());">CSC424+</a>
+                <a id="install" class="button" href="javascript: (function () { }());">CSC424+</a>
             </main>
         </div>
+        <script type="text/javascript">
+          function installCode(loadedCode) {
+            var code = 'javascript: (function () {';
+            code += loadedCode;
+            code += ' }());';
+            return code;
+          }
+
+          function loadCode() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("install").href =
+                installCode(this.responseText);
+              }
+            };
+            xhttp.open("GET", "https://cdn.rawgit.com/antronic/-inject/2e6022c9/script.min.js", true);
+            xhttp.send();
+          }
+        </script>
     </body>
 </html>
